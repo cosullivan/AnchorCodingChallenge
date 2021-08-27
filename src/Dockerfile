@@ -1,11 +1,11 @@
 FROM node:12.18.1
-ENV NODE_ENV=production
 
 WORKDIR /app
 
-COPY ["package.json", "package-lock.json*", "./"]
+COPY ["package.json", "package-lock.json*", "tsconfig.json", "./"]
 
-RUN npm install --production
+RUN npm install
+RUN npm install -g ts-node
 
 COPY . .
 
